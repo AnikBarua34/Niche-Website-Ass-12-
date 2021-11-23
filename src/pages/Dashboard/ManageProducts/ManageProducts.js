@@ -4,6 +4,7 @@ import { Button, Spinner } from 'react-bootstrap';
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import { RiDeleteBin5Fill} from 'react-icons/ri';
+import Swal from 'sweetalert2';
 
 const ManageProducts = () => {
     const [allproducts,setAllProducts] =useState([]);
@@ -25,7 +26,15 @@ const ManageProducts = () => {
                 .then(res=>res.json())
                 .then(data=>{
                     if(data.deletedCount>0){
-                        alert('Deleted Successfully')
+                        // alert('Deleted Successfully')
+                        // import Swal from 'sweetalert2';
+                Swal.fire({
+                  position: 'center',
+                  icon: 'success',
+                  title: 'Successfully Package Deleted from your products list ',
+                  showConfirmButton: false,
+                  timer: 2000
+                })
                         // matching product by id
                         const presentPackage=allproducts.filter(book=> book._id !==id)
                         setAllProducts(presentPackage)

@@ -1,6 +1,8 @@
 import React, { useRef } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import useContextBase from './../../hooks/useContextbase';
+import Swal from 'sweetalert2';
+
 
 const Review = () => {
     const {user}=useContextBase();
@@ -33,7 +35,14 @@ const Review = () => {
        .then(res=>res.json())
        .then(data=>{
          if(data.insertedId){
-           alert('Review Added Successfully, Check Home')
+          //  alert('Review Added Successfully, Check Home')
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Your Review Successfully Added in Home',
+            showConfirmButton:false,
+            timer: 2000
+          })
            e.target.reset();
          }
        })

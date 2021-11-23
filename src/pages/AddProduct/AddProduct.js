@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { Col, Row } from 'react-bootstrap';
+import Swal from 'sweetalert2';
 
 const AddProduct = () => {
      // Add New Product Section 
@@ -31,7 +32,15 @@ const AddProduct = () => {
         .then(res=>res.json())
         .then(data=>{
           if(data.insertedId){
-            alert('Product Added Successfully, Check Dashboard')
+            // alert('Product Added Successfully, Check Dashboard')
+                   // import Swal from 'sweetalert2';
+                   Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Product added successfully !',
+                    showConfirmButton: false,
+                    timer: 2000
+                  })
             e.target.reset();
           }
         })

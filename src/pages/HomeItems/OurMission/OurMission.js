@@ -3,10 +3,18 @@ import { Col, Container, Row } from 'react-bootstrap';
 import ride from '../../../images/freeRide.png';
 import './OurMission.css';
 import { MdInput} from 'react-icons/md';
+import Swal from 'sweetalert2';
 
 const OurMission = () => {
     const bookFreeRide=()=>{
         alert('Free Rides Coming SooN, Stay with us')
+        // Swal.fire({
+        //     position: 'center',
+        //     icon: 'success',
+        //     title: '',
+        //     showConfirmButton: false,
+        //     timer: 2000
+        //   })
     }
     return (
         <div className="freeRide bg-success m-3 rounded mt-5">

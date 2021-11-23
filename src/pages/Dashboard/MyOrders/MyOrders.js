@@ -4,6 +4,7 @@ import './MyOrders.css';
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import { RiDeleteBack2Fill} from 'react-icons/ri';
+import Swal from 'sweetalert2';
 
 const MyOrders = () => {
     const {user}=useContextBase();
@@ -16,7 +17,8 @@ const MyOrders = () => {
 
     const handleDelete=id=>{
       // confrim to delete 
-      const confirmDelete =window.confirm('Are You Sure to delete this Package?? ')
+      const confirmDelete =
+      window.confirm('Are You Sure to delete this Package?? ')
     if(confirmDelete){
       fetch(`https://fathomless-shore-00558.herokuapp.com/getBookedProduct${id}`,{
         method:'DELETE'})
@@ -24,7 +26,14 @@ const MyOrders = () => {
       .then(res=>res.json())
       .then(data=>{
         if(data.deletedCount > 0){
-      alert('Deleted Successfully !')
+      // alert('Deleted Successfully !')
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Package Deleted SuccessFully',
+        showConfirmButton: false,
+        timer: 2000
+      })
       const presentPackages = myBookings.filter(book=>book._id !==id)
       setMyBookings(presentPackages)
         }
@@ -40,6 +49,7 @@ const MyOrders = () => {
                     <Tr>
                       <Th>Package Name</Th>
                       <Th>User Name</Th>
+                      <Th>Booking Status</Th>
                       <Th>Address</Th>
                       <Th>Date</Th>
                       <Th>Contact Number</Th>
@@ -49,11 +59,12 @@ const MyOrders = () => {
                   <Tbody>
                  
 
-                {myBookings.map(({packageName,userName,address,date,contact,_id})=>(
+                {myBookings.map(({packageName,userName,address,date,status,contact,_id})=>(
 
                 <Tr key={_id} className="tableData">
                 <Td> {packageName} </Td>
                 <Td>{userName}</Td>
+                <Td className="text-danger fw-bold">{status}</Td>
                 <Td>{address}</Td>
                 <Td>{date}</Td>
                 <Td>{contact}</Td>

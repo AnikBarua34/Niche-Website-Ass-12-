@@ -4,6 +4,7 @@ import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import Header from '../../Shared/Header/Head';
 import useContextBase from './../hooks/useContextbase';
+import Swal from 'sweetalert2';
 
 const BuyNow = () => {
     const {productId} =useParams();
@@ -43,11 +44,12 @@ const email =  emailRef.current.value;
 const address =  addressRef.current.value;
 const date =  dateRef.current.value;
 const contact =  contactRef.current.value;
+const status='Pending'
 
 e.preventDefault();
    
 
-const newPackage = {packageName,userName, email,address,date,contact}
+const newPackage = {packageName,userName, email,address,date,contact,status}
 fetch('https://fathomless-shore-00558.herokuapp.com/allBookedProducts',{
   method:'POST',
   headers:{
@@ -59,7 +61,15 @@ fetch('https://fathomless-shore-00558.herokuapp.com/allBookedProducts',{
 .then(res=>res.json())
 .then(data=>{
   if(data.insertedId){
-    alert('Product Booked Successfully, Check Dashboard')
+    // alert('Product Booked Successfully, Check Dashboard')
+    // import Swal from 'sweetalert2';
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Package Booked SuccessFully go to Dash-Board',
+      showConfirmButton: false,
+      timer: 2000
+    })
     e.target.reset();
   }
 })
