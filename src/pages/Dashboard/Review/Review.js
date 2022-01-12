@@ -24,7 +24,7 @@ const Review = () => {
           
        
        const newReview = {userName,email, description,rating}
-       fetch('https://fathomless-shore-00558.herokuapp.com/postReview',{
+       fetch('https://crazy-bikers.herokuapp.com/postReview',{
          method:'POST',
          headers:{
            'content-type':'application/json'

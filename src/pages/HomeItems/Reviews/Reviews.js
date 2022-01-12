@@ -9,7 +9,7 @@ import Rating from 'react-rating';
 const Reviews = () => {
     const [usersReview,setUsersReview] =useState([]);
     useEffect(()=>{
-        fetch('https://fathomless-shore-00558.herokuapp.com/getReviews')
+        fetch('https://crazy-bikers.herokuapp.com/getReviews')
         .then(res=>res.json())
         // .then(data=>console.log(data));
         .then(data=>setUsersReview(data));

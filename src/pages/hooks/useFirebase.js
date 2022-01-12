@@ -100,7 +100,7 @@ const useFirebase = () => {
     //   ADD New Registration User To DB
       const addUserToDb = (email,displayName,method)=>{
           const user = {email,displayName};
-          fetch('https://fathomless-shore-00558.herokuapp.com/addUsers',{
+          fetch('https://crazy-bikers.herokuapp.com/addUsers',{
               method:method,
               headers:{
                   'content-type':'application/json'
@@ -113,7 +113,7 @@ const useFirebase = () => {
 
     //   ADMIN SET UP
     useEffect(()=>{
-        fetch(`https://fathomless-shore-00558.herokuapp.com/addUsers/${user.email}`)
+        fetch(`https://crazy-bikers.herokuapp.com/addUsers/${user.email}`)
     .then(res=>res.json())
     .then(data=>setAdmin(data.Admin))
     },[user.email])

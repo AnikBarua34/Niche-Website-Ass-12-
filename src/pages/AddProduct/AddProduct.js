@@ -21,7 +21,7 @@ const AddProduct = () => {
            
         
         const newProduct = {productName,price, description,img}
-        fetch('https://fathomless-shore-00558.herokuapp.com/postAddNewProduct',{
+        fetch('https://crazy-bikers.herokuapp.com/postAddNewProduct',{
           method:'POST',
           headers:{
             'content-type':'application/json'

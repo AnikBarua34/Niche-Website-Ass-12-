@@ -9,7 +9,7 @@ const MoreProducts = () => {
     const [allproducts,setAllProducts] =useState([]);
 
     useEffect(()=>{
-        fetch('https://fathomless-shore-00558.herokuapp.com/getAddNewProduct')
+        fetch('https://crazy-bikers.herokuapp.com/getAddNewProduct')
         .then(res=>res.json())
         .then(data=>setAllProducts(data))
     },[])

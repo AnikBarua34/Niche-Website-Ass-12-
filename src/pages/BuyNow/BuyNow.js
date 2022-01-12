@@ -24,7 +24,7 @@ const BuyNow = () => {
 
     // LOADING DATA BY ID 
     useEffect(()=>{
-      fetch('https://fathomless-shore-00558.herokuapp.com/getAddNewProduct')
+      fetch('https://crazy-bikers.herokuapp.com/getAddNewProduct')
         .then(res=>res.json())
         .then(data=>setSingleProducts(data))
     },[])
@@ -50,7 +50,7 @@ e.preventDefault();
    
 
 const newPackage = {packageName,userName, email,address,date,contact,status}
-fetch('https://fathomless-shore-00558.herokuapp.com/allBookedProducts',{
+fetch('https://crazy-bikers.herokuapp.com/allBookedProducts',{
   method:'POST',
   headers:{
     'content-type':'application/json'

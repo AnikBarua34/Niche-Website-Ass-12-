@@ -8,7 +8,7 @@ const MakeAdmin = () => {
     const handleMakeAdmin=e=>{
 
         const user={email}
-        fetch('https://fathomless-shore-00558.herokuapp.com/addUsers/admin',{
+        fetch('https://crazy-bikers.herokuapp.com/addUsers/admin',{
             method:'PUT',
             headers:{
                 'content-type':'application/json'

@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
 const ManageProducts = () => {
     const [allproducts,setAllProducts] =useState([]);
     useEffect(()=>{
-        fetch('https://fathomless-shore-00558.herokuapp.com/getAddNewProduct')
+        fetch('https://crazy-bikers.herokuapp.com/getAddNewProduct')
         .then(res=>res.json())
         .then(data=>setAllProducts(data))
     },[])
@@ -20,7 +20,7 @@ const ManageProducts = () => {
         const confirmDelete=window.confirm('Are you sure ? to delete this product from your booking !')
         if(confirmDelete){
             // deleting product by id
-            fetch(`https://fathomless-shore-00558.herokuapp.com/getAddNewProduct${id}`,{
+            fetch(`https://crazy-bikers.herokuapp.com/getAddNewProduct${id}`,{
                 method:'DELETE'})
                 // regulaer process
                 .then(res=>res.json())

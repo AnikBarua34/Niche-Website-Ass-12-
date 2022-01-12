@@ -12,7 +12,7 @@ const ManageAllOrders = () => {
     const [orderId,setOrderId]=useState('');
     
     useEffect(()=>{
-        fetch('https://fathomless-shore-00558.herokuapp.com/getBookedProduct')
+        fetch('https://crazy-bikers.herokuapp.com/getBookedProduct')
         .then(res=>res.json())
         .then(data=>setBookedProducts(data))
     },[])
@@ -22,7 +22,7 @@ const ManageAllOrders = () => {
         const confirmDelete=window.confirm('Are you sure ? to delete this product from your booking !')
         if(confirmDelete){
             // deleting product by id
-            fetch(`https://fathomless-shore-00558.herokuapp.com/getBookedProduct${id}`,{
+            fetch(`https://crazy-bikers.herokuapp.com/getBookedProduct${id}`,{
                 method:'DELETE'})
                 // regulaer process
                 .then(res=>res.json())
